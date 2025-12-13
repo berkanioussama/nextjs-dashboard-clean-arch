@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/shared/ui/components/ui/sonner";
+import ReactQueryProvider from "@/shared/ui/components/layout/react-query-provider";
+import AppSidebar from "@/shared/ui/components/layout/app-sidebar";
+import { SidebarProvider } from "@/shared/ui/components/ui/sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,11 +30,17 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
+      <ReactQueryProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SidebarProvider>
+          <AppSidebar />
+          {children}
+          <Toaster />
+        </SidebarProvider>
       </body>
+      </ReactQueryProvider>
     </html>
     </ClerkProvider>
   );
