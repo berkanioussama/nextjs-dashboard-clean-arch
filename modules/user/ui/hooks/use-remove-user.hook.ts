@@ -1,7 +1,7 @@
 'use client'
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { UserRepo } from "@/modules/user/infrastructure/user-repo";
+import { UserRepo } from "@/modules/user/infrastructure/user.repo";
 import { RemoveUserUC } from "@/modules/user/application/command/remove-user.uc";
 
 export function useRemoveUser() {

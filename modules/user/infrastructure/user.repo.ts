@@ -1,13 +1,13 @@
 import { IUserRepo } from "@/modules/user/domain/IUser.repo";
 import { NewUser, User, EditUser } from "@/modules/user/domain/user.entity";
-import { addAction, editAction, findAllAction, removeAction, findByIdAction } from "@/modules/user/infrastructure/users.actions";
+import { addApi, editApi, findAllApi, removeApi, findByIdApi } from "@/modules/user/infrastructure/users.api";
 
 export class UserRepo implements IUserRepo {
     constructor() {}
 
     async add(newUser: NewUser): Promise<User> {
         try {
-            const res = await addAction(newUser);
+            const res = await addApi(newUser);
             if (res.status === 'error') {
                 throw new Error(res.error)
             }
@@ -18,7 +18,7 @@ export class UserRepo implements IUserRepo {
     }
     async edit({ id, user }: EditUser): Promise<User> {
         try {
-            const res = await editAction({ id, user });
+            const res = await editApi({ id, user });
             if (res.status === 'error') {
                 throw new Error(res.error)
             }
@@ -29,7 +29,7 @@ export class UserRepo implements IUserRepo {
     }
     async findAll(): Promise<User[]> {
         try {
-            const res = await findAllAction();
+            const res = await findAllApi();
 
             if (res.status === 'error') {
                 throw new Error(res.error)
@@ -43,7 +43,7 @@ export class UserRepo implements IUserRepo {
     
     async findById(id: string): Promise<User> {
         try {
-            const res = await findByIdAction(id);
+            const res = await findByIdApi(id);
             if (res.status === 'error') {
                 throw new Error(res.error)
             }
@@ -55,7 +55,7 @@ export class UserRepo implements IUserRepo {
     }
     async remove(id: string): Promise<void> {
         try {
-            const res = await removeAction(id);
+            const res = await removeApi(id);
 
             if (res.status === 'error') {
                 throw new Error(res.error)

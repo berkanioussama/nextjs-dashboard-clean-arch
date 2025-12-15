@@ -1,7 +1,7 @@
 'use client'
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { UserRepo } from "@/modules/user/infrastructure/user-repo";
+import { UserRepo } from "@/modules/user/infrastructure/user.repo";
 import { AddUserUC } from "@/modules/user/application/command/add-user.uc";
 import { NewUser } from "@/modules/user/domain/user.entity";
 

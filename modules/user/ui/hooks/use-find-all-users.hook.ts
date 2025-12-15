@@ -1,7 +1,7 @@
 'use client'
 
 import { useQuery } from "@tanstack/react-query"
-import { UserRepo } from "@/modules/user/infrastructure/user-repo"
+import { UserRepo } from "@/modules/user/infrastructure/user.repo"
 import { FindAllUsersUC } from "@/modules/user/application/query/find-all-users.uc"
 
 export function useFindAllUsers() {
