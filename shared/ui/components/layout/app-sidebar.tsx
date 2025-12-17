@@ -5,13 +5,13 @@ import { NavUser } from "@/shared/ui/components/layout/nav-user";
 import { Sidebar, SidebarHeader,SidebarContent, SidebarFooter } from "@/shared/ui/components/ui/sidebar";
 import { Users, Home } from "lucide-react";
 import NavPages from "@/shared/ui/components/layout/nav-pages";
-import { useFindUserByAuthProviderId } from "@/modules/user/ui/hooks/use-find-user-by-authProviderId.hook";
+import { useFindUserByProviderId } from "@/modules/user/ui/hooks/use-find-user-by-provider-id.hook";
 
 const AppSidebar = () => {
     const { user } = useUser();
     if (!user) return null;
 
-    const {data: userData, isLoading, error} = useFindUserByAuthProviderId(user.id)
+    const {data: userData, isLoading, error} = useFindUserByProviderId({ userProviderId: user.id })
 
     const pages = [
         { name: "Home", url: "/", icon: Home },

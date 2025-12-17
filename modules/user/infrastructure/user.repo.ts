@@ -1,5 +1,5 @@
 import { IUserRepo } from "@/modules/user/domain/IUser.repo";
-import { NewUser, User, EditUser } from "@/modules/user/domain/user.entity";
+import { NewUser, User, EditUser, RemoveUser, FindUser } from "@/modules/user/domain/user.entity";
 import { addApi, editApi, findAllApi, removeApi, findByIdApi } from "@/modules/user/infrastructure/users.api";
 
 export class UserRepo implements IUserRepo {
@@ -41,9 +41,9 @@ export class UserRepo implements IUserRepo {
         }
     }
     
-    async findById(id: string): Promise<User> {
+    async findById({userId}: FindUser): Promise<User> {
         try {
-            const res = await findByIdApi(id);
+            const res = await findByIdApi({userId});
             if (res.status === 'error') {
                 throw new Error(res.error)
             }
@@ -53,9 +53,9 @@ export class UserRepo implements IUserRepo {
             throw new Error('Failed to find user')
         }
     }
-    async remove(id: string): Promise<void> {
+    async remove({userId}: RemoveUser): Promise<void> {
         try {
-            const res = await removeApi(id);
+            const res = await removeApi({userId});
 
             if (res.status === 'error') {
                 throw new Error(res.error)

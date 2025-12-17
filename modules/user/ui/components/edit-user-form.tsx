@@ -16,7 +16,7 @@ const EditUserForm = ({user}: {user: User}) => {
         resolver: zodResolver(editUserSchema),
         defaultValues: {
             name: user.name,
-            authProviderId: user.authProviderId,
+            providerId: user.providerId,
             email: user.email,
             image: user.image,
         },
@@ -30,7 +30,7 @@ const EditUserForm = ({user}: {user: User}) => {
                 })
                 form.reset({
                     name: data?.name,
-                    authProviderId: data?.authProviderId,
+                    providerId: data?.providerId,
                     email: data?.email,
                     image: data?.image,
                 });
@@ -45,7 +45,7 @@ const EditUserForm = ({user}: {user: User}) => {
 
     const inputs: { field: keyof NewUser; name: string; placeHolder: string; type: string }[] = [
         { field: 'name', name: 'Name', placeHolder: 'Your full name', type: 'text' },
-        { field: 'authProviderId', name: 'Auth Provider ID', placeHolder: 'Your auth provider ID', type: 'text' },
+        { field: 'providerId', name: 'Auth Provider ID', placeHolder: 'Your auth provider ID', type: 'text' },
         { field: 'email', name: 'Email', placeHolder: 'Your email', type: 'email' },
         { field: 'image', name: 'Image URL', placeHolder: 'Your image URL', type: 'text' }
     ]

@@ -15,7 +15,7 @@ const AddUserForm = () => {
         resolver: zodResolver(addUserSchema),
         defaultValues: {
             name: "",
-            authProviderId: "",
+            providerId: "",
             email: "",
             image: "",
         },
@@ -39,7 +39,7 @@ const AddUserForm = () => {
 
     const inputs: { field: keyof NewUser; name: string; placeHolder: string; type: string }[] = [
         { field: 'name', name: 'Name', placeHolder: 'Your full name', type: 'text' },
-        { field: 'authProviderId', name: 'Auth Provider ID', placeHolder: 'Your auth provider ID', type: 'text' },
+        { field: 'providerId', name: 'Auth Provider ID', placeHolder: 'Your auth provider ID', type: 'text' },
         { field: 'email', name: 'Email', placeHolder: 'Your email', type: 'email' },
         { field: 'image', name: 'Image URL', placeHolder: 'Your image URL', type: 'text' }
     ]

@@ -32,7 +32,7 @@ const UsersTable = ({ users }: { users: User[] }) => {
                             <TableCell>{user.role}</TableCell>
                             <TableCell className="flex gap-3">
                                 <EditUserButton user={user} />
-                                <DeleteUserButton id={user.id} handleClick={(id) => mutate(id)} disabled={isPending} />
+                                <DeleteUserButton id={user.id} handleClick={(userId) => mutate({userId})} disabled={isPending} />
                             </TableCell>
                         </TableRow>
                     ))}
