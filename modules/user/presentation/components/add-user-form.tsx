@@ -1,10 +1,10 @@
 'use client'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/presentation/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@/shared/ui/components/ui/input";
-import { Button } from "@/shared/ui/components/ui/button";
-import { useAddUser } from "@/modules/user/ui/hooks/use-add-user.hook";
+import { Input } from "@/shared/presentation/components/ui/input";
+import { Button } from "@/shared/presentation/components/ui/button";
+import { useAddUser } from "@/modules/user/presentation/hooks/use-add-user.hook";
 import { NewUser, addUserSchema } from "@/modules/user/domain/user.entity";
 import { toast } from "sonner"
 

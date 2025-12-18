@@ -1,4 +1,4 @@
-import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@/shared/ui/components/ui/sidebar"
+import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@/shared/presentation/components/ui/sidebar"
 import { type LucideIcon } from "lucide-react"
 
 const NavPages = ({pages}: {pages: {name: string, url: string, icon: LucideIcon}[]}) => {

@@ -1,5 +1,5 @@
-import Page from "@/shared/ui/components/layout/page";
-import PageHeader from "@/shared/ui/components/layout/page-header";
+import Page from "@/shared/presentation/components/layout/page";
+import PageHeader from "@/shared/presentation/components/layout/page-header";
 
 export default function Home() {
   return (

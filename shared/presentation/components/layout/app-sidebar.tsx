@@ -1,11 +1,11 @@
 'use client'
 
 import { useUser } from "@clerk/nextjs";
-import { NavUser } from "@/shared/ui/components/layout/nav-user";
-import { Sidebar, SidebarHeader,SidebarContent, SidebarFooter } from "@/shared/ui/components/ui/sidebar";
+import { NavUser } from "@/shared/presentation/components/layout/nav-user";
+import { Sidebar, SidebarHeader,SidebarContent, SidebarFooter } from "@/shared/presentation/components/ui/sidebar";
 import { Users, Home } from "lucide-react";
-import NavPages from "@/shared/ui/components/layout/nav-pages";
-import { useFindUserByProviderId } from "@/modules/user/ui/hooks/use-find-user-by-provider-id.hook";
+import NavPages from "@/shared/presentation/components/layout/nav-pages";
+import { useFindUserByProviderId } from "@/modules/user/presentation/hooks/use-find-user-by-provider-id.hook";
 
 const AppSidebar = () => {
     const { user } = useUser();

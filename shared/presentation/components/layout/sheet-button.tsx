@@ -1,4 +1,4 @@
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/shared/ui/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/shared/presentation/components/ui/sheet";
 
 interface Props {
     button: React.ReactNode;

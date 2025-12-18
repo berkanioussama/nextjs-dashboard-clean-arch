@@ -1,9 +1,9 @@
 'use client'
-import UsersTable from "@/modules/user/ui/components/users-table";
-import Page from "@/shared/ui/components/layout/page";
-import PageHeader from "@/shared/ui/components/layout/page-header";
-import { useFindAllUsers } from "@/modules/user/ui/hooks/use-find-all-users.hook";
-import AddUserButton from "@/modules/user/ui/components/add-user-button";
+import UsersTable from "@/modules/user/presentation/components/users-table";
+import Page from "@/shared/presentation/components/layout/page";
+import PageHeader from "@/shared/presentation/components/layout/page-header";
+import { useFindAllUsers } from "@/modules/user/presentation/hooks/use-find-all-users.hook";
+import AddUserButton from "@/modules/user/presentation/components/add-user-button";
 
 const UsersPage = () => {
 

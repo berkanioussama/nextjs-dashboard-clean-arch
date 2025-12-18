@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Toaster } from "@/shared/ui/components/ui/sonner";
-import ReactQueryProvider from "@/shared/ui/components/layout/react-query-provider";
-import AppSidebar from "@/shared/ui/components/layout/app-sidebar";
-import { SidebarProvider } from "@/shared/ui/components/ui/sidebar";
+import { Toaster } from "@/shared/presentation/components/ui/sonner";
+import ReactQueryProvider from "@/shared/presentation/components/layout/react-query-provider";
+import AppSidebar from "@/shared/presentation/components/layout/app-sidebar";
+import { SidebarProvider } from "@/shared/presentation/components/ui/sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

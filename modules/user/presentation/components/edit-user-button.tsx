@@ -1,7 +1,7 @@
-import { Button } from "@/shared/ui/components/ui/button";
+import { Button } from "@/shared/presentation/components/ui/button";
 import { User } from "@/modules/user/domain/user.entity";
-import EditUserForm from "@/modules/user/ui/components/edit-user-form";
-import SheetButton from "@/shared/ui/components/layout/sheet-button";
+import EditUserForm from "@/modules/user/presentation/components/edit-user-form";
+import SheetButton from "@/shared/presentation/components/layout/sheet-button";
 
 const EditUserButton = ({user}: {user: User}) => {
     return (

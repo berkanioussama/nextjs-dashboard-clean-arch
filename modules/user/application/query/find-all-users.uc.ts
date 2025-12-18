@@ -6,7 +6,7 @@ export class FindAllUsersUC {
 
     async execute(): Promise<User[]> {
         const users = await this.userRepo.findAll()
-        console.log(users)
+        
         const result = UsersSchema.safeParse(users);
         if (!result.success) {
             console.error('Validation failed:', result.error)

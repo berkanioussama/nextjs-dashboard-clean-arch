@@ -1,13 +1,13 @@
 'use client'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/presentation/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { editUserSchema, NewUser } from "@/modules/user/domain/user.entity";
-import { Input } from "@/shared/ui/components/ui/input";
-import { Button } from "@/shared/ui/components/ui/button";
+import { Input } from "@/shared/presentation/components/ui/input";
+import { Button } from "@/shared/presentation/components/ui/button";
 import { User } from "@/modules/user/domain/user.entity";
 import { toast } from "sonner"
-import { useEditUser } from "@/modules/user/ui/hooks/use-edit-user.hook";
+import { useEditUser } from "@/modules/user/presentation/hooks/use-edit-user.hook";
 
 const EditUserForm = ({user}: {user: User}) => {
     const { mutate: EditUser, isPending } = useEditUser();

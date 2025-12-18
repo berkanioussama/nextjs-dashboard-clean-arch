@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from "@/shared/ui/components/ui/button";
+import { Button } from "@/shared/presentation/components/ui/button";
 
 const DeleteUserButton = ({id, handleClick, disabled}: {id: string, handleClick: (id: string) => void, disabled: boolean}) => {
 

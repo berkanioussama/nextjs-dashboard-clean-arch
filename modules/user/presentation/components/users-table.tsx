@@ -1,13 +1,13 @@
 'use client'
 
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/shared/ui/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/shared/presentation/components/ui/table";
 import { User } from "@/modules/user/domain/user.entity";
-import EditUserButton from "@/modules/user/ui/components/edit-user-button";
-import DeleteUserButton from "@/modules/user/ui/components/remove-user-button";
-import { useRemoveUser } from "@/modules/user/ui/hooks/use-remove-user.hook";
+import EditUserButton from "@/modules/user/presentation/components/edit-user-button";
+import DeleteUserButton from "@/modules/user/presentation/components/remove-user-button"; 
+import { useRemoveUser } from "@/modules/user/presentation/hooks/use-remove-user.hook";
 
 const UsersTable = ({ users }: { users: User[] }) => {
-
+    if (!users) return null;
     const { mutate, isPending } = useRemoveUser()
 
     return (

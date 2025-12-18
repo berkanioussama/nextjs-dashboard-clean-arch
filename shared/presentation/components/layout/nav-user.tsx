@@ -2,9 +2,9 @@
 
 import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/components/ui/avatar"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/shared/ui/components/ui/dropdown-menu"
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/shared/ui/components/ui/sidebar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/presentation/components/ui/avatar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/shared/presentation/components/ui/dropdown-menu"
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/shared/presentation/components/ui/sidebar"
 import { SignOutButton } from "@clerk/nextjs"
 
 interface Props {
