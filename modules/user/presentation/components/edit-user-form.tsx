@@ -2,7 +2,7 @@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/presentation/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { editUserSchema, NewUser } from "@/modules/user/domain/user.entity";
+import { EditUserSchema, NewUser } from "@/modules/user/domain/user.entity";
 import { Input } from "@/shared/presentation/components/ui/input";
 import { Button } from "@/shared/presentation/components/ui/button";
 import { User } from "@/modules/user/domain/user.entity";
@@ -13,7 +13,7 @@ const EditUserForm = ({user}: {user: User}) => {
     const { mutate: EditUser, isPending } = useEditUser();
 
     const form = useForm<NewUser>({
-        resolver: zodResolver(editUserSchema),
+        resolver: zodResolver(EditUserSchema),
         defaultValues: {
             name: user.name,
             providerId: user.providerId,

@@ -29,7 +29,7 @@ modules/
       - user-entity.ts
     - infrastructure/
       - user-repo.ts
-    - ui/
+    - presentation/
       - components/
         - users-table.tsx
       - hooks/
@@ -37,7 +37,7 @@ modules/
 shared/
   - infrastructure/
     - api.ts
-  - ui/
+  - presentation/
     - components/
       - ui/
     - hooks/

@@ -5,14 +5,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/shared/presentation/components/ui/input";
 import { Button } from "@/shared/presentation/components/ui/button";
 import { useAddUser } from "@/modules/user/presentation/hooks/use-add-user.hook";
-import { NewUser, addUserSchema } from "@/modules/user/domain/user.entity";
+import { NewUser, AddUserSchema } from "@/modules/user/domain/user.entity";
 import { toast } from "sonner"
 
 const AddUserForm = () => {
     const { mutate: addUser, isPending } = useAddUser();
 
     const form = useForm<NewUser>({
-        resolver: zodResolver(addUserSchema),
+        resolver: zodResolver(AddUserSchema),
         defaultValues: {
             name: "",
             providerId: "",

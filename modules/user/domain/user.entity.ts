@@ -15,12 +15,12 @@ export const UserSchema = z.object({
 export type User = z.infer<typeof UserSchema>
 export const UsersSchema = z.array(UserSchema);
 /*-----*****-----*/
-export const addUserSchema = UserSchema.omit({ 
+export const AddUserSchema = UserSchema.omit({ 
   id: true, role: true, createdAt: true, updatedAt: true 
 });
-export type NewUser = z.infer<typeof addUserSchema>
+export type NewUser = z.infer<typeof AddUserSchema>
 /*-----*****-----*/
-export const editUserSchema = addUserSchema
+export const EditUserSchema = AddUserSchema
 export interface EditUser { id: string; user: NewUser}
 /*-----*****-----*/
 export interface FindUser { userId: string}
