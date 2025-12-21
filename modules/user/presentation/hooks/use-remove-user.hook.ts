@@ -13,7 +13,7 @@ export function useRemoveUser() {
             const userRepo = new UserRepo()
             const removeUserUC = new RemoveUserUC(userRepo)
 
-            return removeUserUC.execute({ userId })
+            removeUserUC.execute({ userId })
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['users'] });
