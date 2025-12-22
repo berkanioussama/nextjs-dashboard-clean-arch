@@ -10,7 +10,7 @@ Tech stack
 - Clerk v6
 - shadcn/ui
 - TailwindCSS v4
-- lucide-react v0.561.0
+- lucide-react v0.5
 - Zod v4
 - Tanstack React Query v5
 - Axios v1
