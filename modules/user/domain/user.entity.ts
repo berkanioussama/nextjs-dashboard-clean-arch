@@ -15,15 +15,20 @@ export const UserSchema = z.object({
 export type User = z.infer<typeof UserSchema>
 export const UsersSchema = z.array(UserSchema);
 /*-----*****-----*/
-export const AddUserSchema = UserSchema.omit({ 
-  id: true, role: true, createdAt: true, updatedAt: true 
-});
-export type NewUser = z.infer<typeof AddUserSchema>
+export const AddedUserSchema = UserSchema.omit({ id: true, role: true, createdAt: true, updatedAt: true });
+export type AddedUser = z.infer<typeof AddedUserSchema>
+export const AddedUserFormSchema = UserSchema.omit({ id: true, role: true, createdAt: true, updatedAt: true });
+export type AddedUserForm = z.infer<typeof AddedUserFormSchema>
 /*-----*****-----*/
-export const EditUserSchema = AddUserSchema
-export interface EditUser { id: string; user: NewUser}
+export const EditedUserSchema = UserSchema.omit({ role: true, createdAt: true, updatedAt: true });
+export type EditedUser = z.infer<typeof EditedUserSchema>
+export const EditedUserFormSchema = EditedUserSchema.omit({ id: true });
+export type EditedUserForm = z.infer<typeof EditedUserFormSchema>
 /*-----*****-----*/
-export interface FindUser { userId: string}
-export interface FindUserByProvider { userProviderId: string}
+export const FindUserSchema = UserSchema.pick({ id: true });
+export type FindUser = z.infer<typeof FindUserSchema>
+export const FindUserByProviderSchema = UserSchema.pick({ providerId: true });
+export type FindUserByProvider = z.infer<typeof FindUserByProviderSchema>
 /*-----*****-----*/
-export interface RemoveUser { userId: string}
+export const RemoveUserSchema = UserSchema.pick({ id: true });
+export type RemoveUser = z.infer<typeof RemoveUserSchema>

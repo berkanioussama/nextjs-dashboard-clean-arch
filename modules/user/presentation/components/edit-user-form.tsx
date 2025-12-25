@@ -2,7 +2,7 @@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/presentation/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { EditUserSchema, NewUser } from "@/modules/user/domain/user.entity";
+import { EditedUserSchema, EditedUser, EditedUserForm, EditedUserFormSchema } from "@/modules/user/domain/user.entity";
 import { Input } from "@/shared/presentation/components/ui/input";
 import { Button } from "@/shared/presentation/components/ui/button";
 import { User } from "@/modules/user/domain/user.entity";
@@ -12,8 +12,8 @@ import { useEditUser } from "@/modules/user/presentation/hooks/use-edit-user.hoo
 const EditUserForm = ({user}: {user: User}) => {
     const { mutate: EditUser, isPending } = useEditUser();
 
-    const form = useForm<NewUser>({
-        resolver: zodResolver(EditUserSchema),
+    const form = useForm<EditedUserForm>({
+        resolver: zodResolver(EditedUserFormSchema),
         defaultValues: {
             name: user.name,
             providerId: user.providerId,
@@ -22,8 +22,8 @@ const EditUserForm = ({user}: {user: User}) => {
         },
     })
 
-    function onSubmit(values: NewUser) {
-        EditUser({ id: user.id, user: values}, {
+    function onSubmit(values: EditedUserForm) {
+        EditUser({ id: user.id, ...values}, {
             onSuccess: (data) => {
                 toast.success("User has been updated", {
                     description: `User ${data?.name} has been updated successfully`,
@@ -43,7 +43,7 @@ const EditUserForm = ({user}: {user: User}) => {
         });
     }
 
-    const inputs: { field: keyof NewUser; name: string; placeHolder: string; type: string }[] = [
+    const inputs: { field: keyof EditedUserForm; name: string; placeHolder: string; type: string }[] = [
         { field: 'name', name: 'Name', placeHolder: 'Your full name', type: 'text' },
         { field: 'providerId', name: 'Auth Provider ID', placeHolder: 'Your auth provider ID', type: 'text' },
         { field: 'email', name: 'Email', placeHolder: 'Your email', type: 'email' },

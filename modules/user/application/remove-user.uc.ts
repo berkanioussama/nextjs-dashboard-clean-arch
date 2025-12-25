@@ -4,9 +4,9 @@ import { RemoveUser } from "@/modules/user/domain/user.entity";
 export class RemoveUserUC {
     constructor(private userRepo: IUserRepo) {}
 
-    async execute({ userId }: RemoveUser): Promise<void> {
-        if (!userId) throw new Error("User ID is required.")
+    async execute({ id }: RemoveUser): Promise<void> {
+        if (!id) throw new Error("User ID is required.")
             
-        await this.userRepo.remove({ userId })
+        await this.userRepo.remove({ id })
     }
 }

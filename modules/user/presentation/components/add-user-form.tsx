@@ -5,14 +5,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/shared/presentation/components/ui/input";
 import { Button } from "@/shared/presentation/components/ui/button";
 import { useAddUser } from "@/modules/user/presentation/hooks/use-add-user.hook";
-import { NewUser, AddUserSchema } from "@/modules/user/domain/user.entity";
+import { AddedUser, AddedUserSchema } from "@/modules/user/domain/user.entity";
 import { toast } from "sonner"
 
 const AddUserForm = () => {
     const { mutate: addUser, isPending } = useAddUser();
 
-    const form = useForm<NewUser>({
-        resolver: zodResolver(AddUserSchema),
+    const form = useForm<AddedUser>({
+        resolver: zodResolver(AddedUserSchema),
         defaultValues: {
             name: "",
             providerId: "",
@@ -21,7 +21,7 @@ const AddUserForm = () => {
         },
     })
 
-    function onSubmit(values: NewUser) {
+    function onSubmit(values: AddedUser) {
         addUser(values, {
             onSuccess: (data) => {
                 toast.success("User has been created", {
@@ -37,7 +37,7 @@ const AddUserForm = () => {
         });
     }
 
-    const inputs: { field: keyof NewUser; name: string; placeHolder: string; type: string }[] = [
+    const inputs: { field: keyof AddedUser; name: string; placeHolder: string; type: string }[] = [
         { field: 'name', name: 'Name', placeHolder: 'Your full name', type: 'text' },
         { field: 'providerId', name: 'Auth Provider ID', placeHolder: 'Your auth provider ID', type: 'text' },
         { field: 'email', name: 'Email', placeHolder: 'Your email', type: 'email' },

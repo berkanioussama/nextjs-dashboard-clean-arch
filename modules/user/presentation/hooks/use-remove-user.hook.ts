@@ -2,18 +2,18 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { UserRepo } from "@/modules/user/infrastructure/user.repo";
-import { RemoveUserUC } from "@/modules/user/application/command/remove-user.uc";
+import { RemoveUserUC } from "@/modules/user/application/remove-user.uc";
 import { RemoveUser } from "@/modules/user/domain/user.entity";
 
 export function useRemoveUser() {
     const queryClient = useQueryClient();
 
     return useMutation({
-        mutationFn: async ({userId}: RemoveUser) => {
+        mutationFn: async ({id}: RemoveUser) => {
             const userRepo = new UserRepo()
             const removeUserUC = new RemoveUserUC(userRepo)
 
-            removeUserUC.execute({ userId })
+            removeUserUC.execute({ id })
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['users'] });
