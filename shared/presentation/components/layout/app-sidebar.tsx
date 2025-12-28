@@ -11,8 +11,6 @@ const AppSidebar = () => {
     const { user } = useUser();
     if (!user) return null;
 
-    const {data: userData, isLoading, error} = useFindUserByProviderId({ userProviderId: user.id })
-
     const pages = [
         { name: "Home", url: "/", icon: Home },
         { name: "Users", url: "/users", icon: Users }
@@ -28,20 +26,29 @@ const AppSidebar = () => {
             <SidebarContent>
                 <NavPages pages={pages} />
             </SidebarContent>
-            {isLoading && <div className="p-4">Loading user data...</div>}
-            {error && <div className="p-4">Error: {error.message}</div>}
-            {userData && (
-                <SidebarFooter>
-                    <NavUser 
-                        name= {userData.name} 
-                        email= {userData.email} 
-                        avatar={userData.image}
-                    />
-                </SidebarFooter>
-            )}
+            <LoginUser providerId={user.id} />
             
         </Sidebar>
     );
 }
  
 export default AppSidebar;
+
+const LoginUser = ({providerId}: {providerId: string}) => {
+
+    const {data: user, isLoading, error} = useFindUserByProviderId({ providerId })
+
+    if (isLoading) return <div className="p-2">Loading...</div>;
+    if (error) return <div className="p-2 text-destructive">Error: {(error as Error).message}</div>;
+    if (!user) return <div className="p-2">User not found</div>;
+
+    return (
+        <SidebarFooter>
+            <NavUser 
+                name= {user.name} 
+                email= {user.email} 
+                avatar={user.image}
+            />
+        </SidebarFooter>
+    );
+}

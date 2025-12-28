@@ -6,7 +6,7 @@ import EditUserButton from "@/modules/user/presentation/components/edit-user-but
 import DeleteUserButton from "@/modules/user/presentation/components/remove-user-button"; 
 import { useRemoveUser } from "@/modules/user/presentation/hooks/use-remove-user.hook";
 
-const UsersTable = ({ users }: { users: User[] }) => {
+const UsersTable = ({ users }: { users: User[] | undefined }) => {
     if (!users) return null;
     const { mutate, isPending } = useRemoveUser()
 

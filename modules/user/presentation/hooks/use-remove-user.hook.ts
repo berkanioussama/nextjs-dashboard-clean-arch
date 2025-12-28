@@ -9,11 +9,11 @@ export function useRemoveUser() {
     const queryClient = useQueryClient();
 
     return useMutation({
-        mutationFn: async ({id}: RemoveUser) => {
+        mutationFn: async (id: RemoveUser) => {
             const userRepo = new UserRepo()
             const removeUserUC = new RemoveUserUC(userRepo)
 
-            removeUserUC.execute({ id })
+            removeUserUC.execute(id)
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['users'] });
