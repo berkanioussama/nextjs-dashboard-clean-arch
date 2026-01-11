@@ -8,24 +8,24 @@ export class UserRepo implements IUserRepo {
     async add(addedUser: AddedUser): Promise<User> {
         try {
             const res = await addApi(addedUser);
-            if (res.status === 'error') {
+            if (res.error) {
                 throw new Error(res.error)
             }
             return res.data
-        } catch (error) {
-            throw new Error('Failed to create user')
+        } catch (error: any) {
+            throw new Error('Failed to create user: ' + error.message)
         }
     }
 
     async edit(editedUser: EditedUser): Promise<User> {
         try {
             const res = await editApi(editedUser);
-            if (res.status === 'error') {
+            if (res.error) {
                 throw new Error(res.error)
             }
             return res.data
-        } catch (error) {
-            throw new Error('Failed to update user')
+        } catch (error: any) {
+            throw new Error('Failed to update user: ' + error.message)
         }
     }
 
@@ -33,7 +33,7 @@ export class UserRepo implements IUserRepo {
         try {
             const res = await findAllApi();
 
-            if (res.status === 'error') {
+            if (res.error) {
                 throw new Error(res.error)
             }
 
@@ -43,51 +43,51 @@ export class UserRepo implements IUserRepo {
         }
     }
     
-    async findById(id: FindUser): Promise<User> {
+    async findById(id: string): Promise<User> {
         try {
             const res = await findByIdApi(id);
-            if (res.status === 'error') {
+            if (res.error) {
                 throw new Error(res.error)
             }
 
             return res.data
-        } catch (error) {
-            throw new Error('Failed to find user')
+        } catch (error: any) {
+            throw new Error('Failed to find user: ' + error.message)
         }
     }
 
     async findByProviderId(providerId: FindUserByProvider): Promise<User> {
         try {
             const res = await findByProviderIdApi(providerId);
-            if (res.status === 'error') {
+            if (res.error) {
                 throw new Error(res.error)
             }
             return res.data
-        } catch (error) {
-            throw new Error("Failed to find user");
+        } catch (error: any) {
+            throw new Error("Failed to find user: " + error.message);
         }
     }
     async findProfileByProviderId(providerId: FindUserByProvider): Promise<any> {
         try {
             const res = await findProfileByProviderIdApi(providerId);
-            if (res.status === 'error') {
+            if (res.error) {
                 throw new Error(res.error)
             }
             return res.data
-        } catch (error) {
-            throw new Error("Failed to find user profile");
+        } catch (error: any) {
+            throw new Error("Failed to find user profile: " + error.message);
         }
     }
     
-    async remove(id: RemoveUser): Promise<void> {
+    async remove(id: string): Promise<void> {
         try {
             const res = await removeApi(id);
 
-            if (res.status === 'error') {
+            if (res.error) {
                 throw new Error(res.error)
             }
-        } catch (error) {
-            throw new Error('Failed to delete user')
+        } catch (error: any) {
+            throw new Error('Failed to delete user: ' + error.message)
         }
     }
 

@@ -23,10 +23,21 @@ export async function api() {
     instance.interceptors.response.use(response => {
         return response;
     }, error => {
+        // Handle server connectivity issues
+        if (error.code === 'ECONNREFUSED' || 
+            error.code === 'ENOTFOUND' || 
+            error.message.includes('timeout') ||
+            error.message.includes('Network Error')) {
+            
+            const serverError = new Error('SERVER_UNREACHABLE');
+            return Promise.reject(serverError);
+        }
+        // Handle server response errors
         if (error.response?.data?.error) {
             const customError = new Error(error.response.data.error);
             return Promise.reject(customError);
         }
+        // Handle other errors
         return Promise.reject(error);
     });
 

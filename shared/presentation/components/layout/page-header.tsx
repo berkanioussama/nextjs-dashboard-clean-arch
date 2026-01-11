@@ -1,6 +1,6 @@
 const PageHeader = ({title, subTitle, children}: {title: string, subTitle: string, children: React.ReactNode}) => {
     return (
-        <div className="w-full flex items-center justify-between">
+        <div className="w-full flex items-center justify-between mb-4">
             <div className="flex flex-col gap-1">
                 <h2 className="font-semibold text-3xl">{title}</h2>
                 <p className="text-sm text-muted-foreground">{subTitle}</p>

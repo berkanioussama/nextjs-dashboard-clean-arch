@@ -7,7 +7,7 @@ export const UserSchema = z.object({
   name: z.string().min(2, { message: "Username must be at least 2 characters." }),
   providerId: z.string().min(2, { message: "Auth provider ID must be at least 2 characters." }),
   email: z.email({ message: "Invalid email address." }),
-  image: z.string(),
+  image: z.url(),
   role: z.enum([Role.USER, Role.ADMIN], { message: `Role must be either '${Role.USER}' or '${Role.ADMIN}'` }),
   createdAt: z.string().transform(str => new Date(str)),
   updatedAt: z.string().transform(str => new Date(str)),

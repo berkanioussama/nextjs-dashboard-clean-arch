@@ -4,6 +4,7 @@ import Page from "@/shared/presentation/components/layout/page";
 import PageHeader from "@/shared/presentation/components/layout/page-header";
 import { useFindAllUsers } from "@/modules/user/presentation/hooks/use-find-all-users.hook";
 import AddUserButton from "@/modules/user/presentation/components/add-user-button";
+import GlobalLoading from "@/shared/presentation/components/layout/global-loading";
 
 const UsersPage = () => {
 
@@ -12,8 +13,8 @@ const UsersPage = () => {
     return (
         <Page>
             <PageHeader title="Users" subTitle="Find your users, stats and more" children={<AddUserButton/>}/>
-            {isLoading && <div >Loading...</div>}
-            {error && <div>{error.message}</div>}
+            {isLoading && <GlobalLoading text="Loading users..." />}
+            {error && <GlobalLoading text="Error loading users..." />}
             {usersData && <UsersTable users={usersData}/>}
         </Page>
     );

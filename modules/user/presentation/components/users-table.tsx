@@ -5,6 +5,7 @@ import { User } from "@/modules/user/domain/user.entity";
 import EditUserButton from "@/modules/user/presentation/components/edit-user-button";
 import DeleteUserButton from "@/modules/user/presentation/components/remove-user-button"; 
 import { useRemoveUser } from "@/modules/user/presentation/hooks/use-remove-user.hook";
+import ViewUserButton from "@/modules/user/presentation/components/view-user-button";
 
 const UsersTable = ({ users }: { users: User[] | undefined }) => {
     if (!users) return null;
@@ -31,8 +32,9 @@ const UsersTable = ({ users }: { users: User[] | undefined }) => {
                             <TableCell>{user.email}</TableCell>
                             <TableCell>{user.role}</TableCell>
                             <TableCell className="flex gap-3">
+                                <ViewUserButton id={user.id} />
                                 <EditUserButton user={user} />
-                                <DeleteUserButton id={user.id} handleClick={(id) => mutate({id})} disabled={isPending} />
+                                <DeleteUserButton id={user.id} handleClick={(id) => mutate(id)} disabled={isPending} />
                             </TableCell>
                         </TableRow>
                     ))}

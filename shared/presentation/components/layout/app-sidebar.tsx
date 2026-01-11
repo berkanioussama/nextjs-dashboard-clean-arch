@@ -13,8 +13,8 @@ const AppSidebar = () => {
     return (
         <Sidebar>
             <SidebarHeader>
-                <div className="flex items-center justify-center gap-2 w-full">
-                    <span className="text-xl font-semibold">Workout Logbook</span>
+                <div className="flex items-center justify-center gap-2 w-full py-2">
+                    <span className="text-xl font-bold">NextJS Dashboard</span>
                 </div>
             </SidebarHeader>
             <SidebarContent>

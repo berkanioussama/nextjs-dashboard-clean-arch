@@ -4,8 +4,8 @@ export interface IUserRepo {
   add(addedUser: AddedUser): Promise<User>
   edit(editedUser: EditedUser): Promise<User>
   findAll(): Promise<User[]>
-  findById(id: FindUser): Promise<User>
+  findById(id: string): Promise<User>
   findByProviderId(providerId: FindUserByProvider): Promise<User>
   findProfileByProviderId(providerId: FindUserByProvider): Promise<void>
-  remove(id: RemoveUser): Promise<void>
+  remove(id: string): Promise<void>
 }
