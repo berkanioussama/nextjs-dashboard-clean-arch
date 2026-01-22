@@ -1,7 +1,7 @@
 'use server'
 
 import { api } from "@/shared/infrastructure/api"
-import { AddedUser, EditedUser, FindUserByProvider } from "@/modules/user/domain/user.entity"
+import { AddedUser, EditedUser } from "@/modules/user/domain/user.entity"
 import { ApiResponse } from "@/shared/infrastructure/api-response"
 
 export async function addApi(addedUser: AddedUser): Promise<ApiResponse> {
@@ -28,15 +28,15 @@ export async function findByIdApi(id: string): Promise<ApiResponse> {
     return res.data
 }
 
-export async function findByProviderIdApi({providerId}: FindUserByProvider): Promise<ApiResponse> {
+export async function findByProviderIdApi(providerId: string): Promise<ApiResponse> {
     const instance = await api()
     const res = await instance.get(`/users/providers/${providerId}`)
     return res.data
 }
 
-export async function findProfileByProviderIdApi({providerId}: FindUserByProvider): Promise<ApiResponse> {
+export async function findProfileByIdApi(id: string): Promise<ApiResponse> {
     const instance = await api()
-    const res = await instance.get(`/users/providers/${providerId}/profile`)
+    const res = await instance.get(`/admin/users/${id}/profile`)
     return res.data
 }
 

@@ -5,6 +5,13 @@ const isPublicRoute = createRouteMatcher(['/sign-in(.*)','/sign-up(.*)'])
 export default clerkMiddleware(async (auth, req) => {
   if (!isPublicRoute(req)) {
     await auth.protect()
+
+    const { sessionClaims } = await auth()
+    const userRole = sessionClaims?.metadata?.role
+    
+    if (userRole !== 'admin') {
+      throw new Error('Unauthorized: Admin access required')
+    }
   }
 })
 

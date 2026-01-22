@@ -3,9 +3,8 @@
 import { useQuery } from "@tanstack/react-query"
 import { UserRepo } from "@/modules/user/infrastructure/user.repo"
 import { FindUserByProviderIdUC } from "@/modules/user/application/find-user-by-provider-id.uc";
-import { FindUserByProvider } from "@/modules/user/domain/user.entity";
 
-export function useFindUserByProviderId(providerId: FindUserByProvider) {
+export function useFindUserByProviderId(providerId: string) {
 
     return useQuery({
         queryKey: ['user', providerId],

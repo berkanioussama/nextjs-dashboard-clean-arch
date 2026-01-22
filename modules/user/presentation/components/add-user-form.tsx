@@ -14,7 +14,8 @@ const AddUserForm = () => {
     const form = useForm<AddedUser>({
         resolver: zodResolver(AddedUserSchema),
         defaultValues: {
-            name: "",
+            firstName: "",
+            lastName: "",
             providerId: "",
             email: "",
             image: "",
@@ -25,7 +26,7 @@ const AddUserForm = () => {
         addUser(values, {
             onSuccess: (data) => {
                 toast.success("User has been created", {
-                    description: `User ${data.name} has been created successfully`,
+                    description: `User ${data.firstName} has been created successfully`,
                 })
                 form.reset();
             },
@@ -38,7 +39,8 @@ const AddUserForm = () => {
     }
 
     const inputs: { field: keyof AddedUser; name: string; placeHolder: string; type: string }[] = [
-        { field: 'name', name: 'Name', placeHolder: 'Your full name', type: 'text' },
+        { field: 'firstName', name: 'firstName', placeHolder: 'Your first name', type: 'text' },
+        { field: 'lastName', name: 'lastName', placeHolder: 'Your last name', type: 'text' },
         { field: 'providerId', name: 'Auth Provider ID', placeHolder: 'Your auth provider ID', type: 'text' },
         { field: 'email', name: 'Email', placeHolder: 'Your email', type: 'email' },
         { field: 'image', name: 'Image URL', placeHolder: 'Your image URL', type: 'text' }

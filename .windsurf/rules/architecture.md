@@ -6,10 +6,10 @@ trigger: always_on
 
 We are building a Frontend Next.js app using clean architecture
 
-- ***Application***: contains use cases and business rules.
+- ***Application***: contains use cases and business rules, depends on Domain and Infrastructure layers.
 - ***Domain***: contains entities and business rules, repository interfaces, must not depend on any other layer.
-- ***Infrastructure***: contains concrete implementations of repositories, depends on Domain.
-- ***Presentation***: contains UI components and hooks, depends on Application.
+- ***Infrastructure***: contains concrete implementations of repositories, depends on Domain layer only.
+- ***Presentation***: contains UI components and hooks, depends on Application and Infrastructure layers.
 
 ---
 
@@ -21,3 +21,10 @@ We are building a Frontend Next.js app using clean architecture
 - **Auth**: Clerk v6
 - **Validation**: Zod v4
 - **Hosting / Deployment**: Vercel
+
+---
+
+## Database Tables
+
+- **users**: (id, providerId, firstName, lastName, email, image, role, createdAt, updatedAt)
+- **quotes**: (id, userId, author, description, createdAt, updatedAt)

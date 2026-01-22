@@ -1,5 +1,5 @@
 import { IUserRepo } from "@/modules/user/domain/IUser.repo"
-import { User, UserSchema, FindUser } from "@/modules/user/domain/user.entity"
+import { User, UserSchema } from "@/modules/user/domain/user.entity"
 
 export class FindUserByIdUC {
     constructor( private readonly userRepo: IUserRepo ) {}

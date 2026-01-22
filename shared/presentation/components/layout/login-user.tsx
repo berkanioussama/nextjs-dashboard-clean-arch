@@ -18,7 +18,7 @@ const LoginUser = () => {
 export default LoginUser;
 
 const UserProvider = ({ providerId }: { providerId: string }) => {
-    const {data: user, isLoading, error} = useFindUserByProviderId({ providerId })
+    const {data: user, isLoading, error} = useFindUserByProviderId( providerId )
 
     if (isLoading) return <div className="p-2">Loading...</div>;
     if (error) return <div className="p-2 text-destructive">Error: {(error as Error).message}</div>;
@@ -26,7 +26,7 @@ const UserProvider = ({ providerId }: { providerId: string }) => {
 
     return (
         <NavUser 
-            name= {user.name} 
+            name= {user.firstName + " " + user.lastName} 
             email= {user.email} 
             avatar={user.image}
         />

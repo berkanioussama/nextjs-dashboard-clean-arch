@@ -2,7 +2,7 @@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/presentation/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { EditedUserSchema, EditedUser, EditedUserForm, EditedUserFormSchema } from "@/modules/user/domain/user.entity";
+import { EditedUserForm, EditedUserFormSchema } from "@/modules/user/domain/user.entity";
 import { Input } from "@/shared/presentation/components/ui/input";
 import { Button } from "@/shared/presentation/components/ui/button";
 import { User } from "@/modules/user/domain/user.entity";
@@ -15,7 +15,8 @@ const EditUserForm = ({user}: {user: User}) => {
     const form = useForm<EditedUserForm>({
         resolver: zodResolver(EditedUserFormSchema),
         defaultValues: {
-            name: user.name,
+            firstName: user.firstName,
+            lastName: user.lastName,
             providerId: user.providerId,
             email: user.email,
             image: user.image,
@@ -26,10 +27,11 @@ const EditUserForm = ({user}: {user: User}) => {
         EditUser({ id: user.id, ...values}, {
             onSuccess: (data) => {
                 toast.success("User has been updated", {
-                    description: `User ${data?.name} has been updated successfully`,
+                    description: `User ${data?.firstName} ${data?.lastName} has been updated successfully`,
                 })
                 form.reset({
-                    name: data?.name,
+                    firstName: data?.firstName,
+                    lastName: data?.lastName,
                     providerId: data?.providerId,
                     email: data?.email,
                     image: data?.image,
@@ -44,7 +46,8 @@ const EditUserForm = ({user}: {user: User}) => {
     }
 
     const inputs: { field: keyof EditedUserForm; name: string; placeHolder: string; type: string }[] = [
-        { field: 'name', name: 'Name', placeHolder: 'Your full name', type: 'text' },
+        { field: 'firstName', name: 'First Name', placeHolder: 'Your first name', type: 'text' },
+        { field: 'lastName', name: 'Last Name', placeHolder: 'Your last name', type: 'text' },
         { field: 'providerId', name: 'Auth Provider ID', placeHolder: 'Your auth provider ID', type: 'text' },
         { field: 'email', name: 'Email', placeHolder: 'Your email', type: 'email' },
         { field: 'image', name: 'Image URL', placeHolder: 'Your image URL', type: 'text' }

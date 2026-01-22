@@ -1,6 +1,6 @@
 import { IUserRepo } from "@/modules/user/domain/IUser.repo";
-import { AddedUser, User, EditedUser, RemoveUser, FindUser, FindUserByProvider } from "@/modules/user/domain/user.entity";
-import { addApi, editApi, findAllApi, removeApi, findByIdApi, findByProviderIdApi, findProfileByProviderIdApi } from "@/modules/user/infrastructure/users.api";
+import { AddedUser, User, EditedUser } from "@/modules/user/domain/user.entity";
+import { addApi, editApi, findAllApi, removeApi, findByIdApi, findByProviderIdApi, findProfileByIdApi } from "@/modules/user/infrastructure/users.api";
 
 export class UserRepo implements IUserRepo {
     constructor() {}
@@ -56,7 +56,7 @@ export class UserRepo implements IUserRepo {
         }
     }
 
-    async findByProviderId(providerId: FindUserByProvider): Promise<User> {
+    async findByProviderId(providerId: string): Promise<User> {
         try {
             const res = await findByProviderIdApi(providerId);
             if (res.error) {
@@ -67,9 +67,9 @@ export class UserRepo implements IUserRepo {
             throw new Error("Failed to find user: " + error.message);
         }
     }
-    async findProfileByProviderId(providerId: FindUserByProvider): Promise<any> {
+    async findProfileById(id: string): Promise<any> {
         try {
-            const res = await findProfileByProviderIdApi(providerId);
+            const res = await findProfileByIdApi(id);
             if (res.error) {
                 throw new Error(res.error)
             }

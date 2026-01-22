@@ -1,4 +1,4 @@
-import UserProfile from "@/modules/user/presentation/components/user-profile";
+import UserProfileContainer from "@/modules/user/presentation/components/user-profile-container";
 import Page from "@/shared/presentation/components/layout/page";
 import PageHeader from "@/shared/presentation/components/layout/page-header";
 
@@ -11,7 +11,7 @@ const UserPage = async ({params}: {params: Promise<{ id: string }>}) => {
                 subTitle="User details" 
                 children={null} 
             />
-            <UserProfile id={id} />
+            <UserProfileContainer id={id} />
         </Page>
     );
 }

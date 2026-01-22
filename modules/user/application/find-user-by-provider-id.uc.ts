@@ -1,10 +1,10 @@
 import { IUserRepo } from "@/modules/user/domain/IUser.repo"
-import { User, UserSchema, FindUserByProvider } from "@/modules/user/domain/user.entity"
+import { User, UserSchema } from "@/modules/user/domain/user.entity"
 
 export class FindUserByProviderIdUC {
     constructor( private readonly userRepo: IUserRepo ) {}
 
-    async execute(providerId: FindUserByProvider): Promise<User> {
+    async execute(providerId: string): Promise<User> {
         const user = await this.userRepo.findByProviderId(providerId);
         
         const result = UserSchema.safeParse(user)
