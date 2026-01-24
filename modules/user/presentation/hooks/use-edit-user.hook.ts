@@ -3,7 +3,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { EditedUser } from "@/modules/user/domain/user.entity";
 import { EditUserUC } from "@/modules/user/application/edit-user.uc";
-import { UserRepo } from "@/modules/user/infrastructure/user.repo";
+import { UserRepo } from "@/modules/user/infrastructure/user.repo.impl";
 
 export const useEditUser = () => {
     const queryClient = useQueryClient();

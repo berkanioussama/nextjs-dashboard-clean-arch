@@ -1,7 +1,7 @@
 'use client'
 
 import { useQuery } from "@tanstack/react-query"
-import { UserRepo } from "@/modules/user/infrastructure/user.repo"
+import { UserRepo } from "@/modules/user/infrastructure/user.repo.impl"
 import { FindProfileByIdUC } from "@/modules/user/application/find-profile-by-id.uc"
 
 export function useFindProfileById(id: string) {

@@ -1,5 +1,5 @@
 import { Sidebar, SidebarHeader,SidebarContent } from "@/shared/presentation/components/ui/sidebar";
-import { Users, Home } from "lucide-react";
+import { Users, Home, Quote } from "lucide-react";
 import NavPages from "@/shared/presentation/components/layout/nav-pages";
 import LoginUser from "@/shared/presentation/components/layout/login-user";
 
@@ -7,7 +7,8 @@ const AppSidebar = () => {
 
     const pages = [
         { name: "Home", url: "/", icon: Home },
-        { name: "Users", url: "/users", icon: Users }
+        { name: "Users", url: "/users", icon: Users },
+        { name: "Quotes", url: "/quotes", icon: Quote }
     ]
 
     return (

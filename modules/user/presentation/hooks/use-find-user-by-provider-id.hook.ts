@@ -1,7 +1,7 @@
 'use client'
 
 import { useQuery } from "@tanstack/react-query"
-import { UserRepo } from "@/modules/user/infrastructure/user.repo"
+import { UserRepo } from "@/modules/user/infrastructure/user.repo.impl"
 import { FindUserByProviderIdUC } from "@/modules/user/application/find-user-by-provider-id.uc";
 
 export function useFindUserByProviderId(providerId: string) {
